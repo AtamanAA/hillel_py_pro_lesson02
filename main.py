@@ -1,5 +1,12 @@
+from urllib.parse import urlparse, parse_qs
+
+
 def parse(query: str) -> dict:
-    return {}
+    parse_dict = parse_qs(urlparse(query).query)
+    properties = {}
+    for key, values in parse_dict.items():
+        properties[key] = values[0]
+    return properties
 
 
 if __name__ == '__main__':
