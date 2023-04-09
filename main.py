@@ -11,7 +11,13 @@ if __name__ == '__main__':
 
 
 def parse_cookie(query: str) -> dict:
-    return {}
+    cookies = {}
+    for param in query.split(";"):
+        if param and "=" in param:
+            key = param.split("=", 1)[0]
+            value = param.split("=", 1)[1]
+            cookies[key] = value
+    return cookies
 
 
 if __name__ == '__main__':
