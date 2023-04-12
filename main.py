@@ -14,8 +14,7 @@ def parse_cookie(query: str) -> dict:
     cookies = {}
     for param in query.split(";"):
         if param and "=" in param:
-            key = param.split("=", 1)[0]
-            value = param.split("=", 1)[1]
+            key, value = param.split("=", 1)
             cookies[key] = value
     return cookies
 
